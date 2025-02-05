@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptic Hunt</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background: url('https://i.pinimg.com/474x/bd/cd/a9/bdcda95966f4059f1636831bf3e3546c.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #f5f5dc;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            margin: 50px auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 700px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px #8b0000;
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .puzzle {
+            font-size: 1.3rem;
+            margin: 20px 0;
+        }
+        .input-container {
+            margin: 20px 0;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            outline: none;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #f5f5dc;
+            background-color: #8b0000;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #b22222;
+        }
+        .message {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Step 4: Spellcasting Challenge</h1>
+        <p>Harry, Ron, and Hermione are practicing their spells. Use logic to determine how many each cast.</p>
+        <div class="puzzle">
+            "Three wizards—Harry, Hermione, and Ron—are practicing spells:
+            <ul>
+                <li>Harry casts Expelliarmus three times as many times as Hermione.</li>
+                <li>Ron casts one fewer spell than Hermione.</li>
+                <li>Altogether, they cast 94 spells.</li>
+            </ul>
+             Question : Multiply Hermione’s spell count by 4 and subtract 10. What number do you get?"
+        </div>
+        <div class="input-container">
+            <input type="text" id="answer" placeholder="Enter your final answer here">
+            <button onclick="checkAnswer()">Submit</button>
+        </div>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const userAnswer = document.getElementById('answer').value.trim();
+            const correctAnswer = "66";
+            const message = document.getElementById('message');
+
+            if (userAnswer === correctAnswer) {
+                message.style.color = "#32cd32";
+                message.textContent = "Well done! You’ve successfully solved this step. Proceeding to the final step...";
+                setTimeout(() => {
+                    window.location.href = "step5.html";
+                }, 3000);
+            } else {
+                message.style.color = "#ff4500";
+                message.textContent = "Incorrect! Please try again.";
+            }
+        }
+
+        // Disable inspect element
+        document.addEventListener('contextmenu', (e) => e.preventDefault());
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
