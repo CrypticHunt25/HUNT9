@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 3: Caesar Cipher Puzzle</title>
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/736x/5e/20/b0/5e20b07709ba148743a357d3c5c9498d.jpg');
+            background-size: cover;
+            color: #f5deb3;
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            text-align: center;
+            padding: 50px;
+        }
+        .welcome {
+            font-size: 2rem;
+            color: #ffd700;
+            text-shadow: 2px 2px 5px #000;
+            animation: fadeIn 2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .puzzle {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            box-shadow: 0 0 20px #ffd700;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px #ffd700; }
+            50% { box-shadow: 0 0 30px #ff4500; }
+            100% { box-shadow: 0 0 20px #ffd700; }
+        }
+        .puzzle p {
+            font-size: 1.2rem;
+        }
+        input[type="text"] {
+            width: 50%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid #ffd700;
+            font-size: 1rem;
+            background: rgba(0, 0, 0, 0.6);
+            color: #ffd700;
+            outline: none;
+            transition: box-shadow 0.3s;
+        }
+        input[type="text"]:focus {
+            box-shadow: 0 0 10px #ff4500;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: #ff4500;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 0 10px #ffd700;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #ffd700;
+            color: #000;
+        }
+    </style>
+    <script>
+        document.addEventListener("contextmenu", (e) => e.preventDefault());
+        function checkAnswer() {
+            const input = document.getElementById('answer').value.trim().toLowerCase();
+            if (input === "the mark of the dark lord is this") {
+                alert("Correct! Proceeding to the next step.");
+                window.location.href = "step3.html";
+            } else {
+                alert("Incorrect answer. Try again!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="welcome">✨ Well done! You've advanced to Step 3! ✨</div>
+        <div class="puzzle">
+            <p><strong>Clue:</strong></p>
+            <p>"Xli qevo sj xli hevc orsww mw xlmw."</p>
+            <p><strong>Hint:</strong>"Marauders never stay still—take four steps to reveal their secret." </p>
+            <input type="text" id="answer" placeholder="Enter your answer here">
+            <br>
+            <button onclick="checkAnswer()">Submit</button>
+        </div>
+    </div>
+</body>
+</html>
