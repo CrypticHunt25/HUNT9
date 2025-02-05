@@ -1,0 +1,74 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Step</title>
+  <style>
+    body {
+      background: url('https://i.pinimg.com/736x/68/a1/c6/68a1c6c3d976f456bd0407e01e5169d1.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      font-family: 'Georgia', serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      margin-top: 100px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+      padding: 30px;
+      display: inline-block;
+    }
+    .input-box {
+      margin-top: 20px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #4caf50;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <script>
+    document.addEventListener("contextmenu", (event) => event.preventDefault());
+
+    function checkAnswer() {
+      const answer = document.getElementById("answer").value;
+      if (answer === "Vishwakarandak") {
+        alert("Congratulations! You have completed Hunt 2.");
+        window.location.href = "congratulations.html";
+      } else {
+        alert("Incorrect answer. Try again!");
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Final Step</h1>
+    <p>"A war is waged, but swords stay sheathed,
+Departments clash, each seeking a wreath.
+Through mind, through skill, through fire they fight,
+For honour, for pride, for victory’s light."</p>
+    <div class="input-box">
+      <input type="text" id="answer" placeholder="Enter your answer here">
+      <button onclick="checkAnswer()">Submit</button>
+    </div>
+  </div>
+</body>
+</html>
