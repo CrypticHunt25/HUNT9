@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptic Hunt  - Step 4</title>
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/736x/c2/d0/03/c2d0035cd1977f313fb14ef4e4b8a17f.jpg'); /* Replace with hosted link */
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Poppins', sans-serif;
+            color: #f0f8ff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .greeting {
+            margin-top: 20px;
+            font-size: 2.5rem;
+            animation: fadeIn 2s ease-in-out;
+            color: #ffdf00;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .emoji {
+            font-size: 3rem;
+            animation: bounce 2s infinite;
+        }
+        .puzzle-container {
+            margin: 20px auto;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 20px;
+            font-size: 1.5rem;
+            width: 80%;
+            max-width: 700px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            color: #f0e68c;
+        }
+        img {
+            max-width: 300px;
+            margin: 20px 0;
+        }
+        input[type="text"] {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #f0e68c;
+            width: 60%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            background-color: #6a5acd;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        button:hover {
+            background-color: #483d8b;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+    <script>
+        document.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
+        });
+
+        function checkAnswer() {
+            const answer = document.getElementById("answer").value.toLowerCase();
+            if (answer === "hat159") {
+                window.location.href = "step4.html"; // Replace with the actual hosted link for step 3
+            } else {
+                alert("Incorrect! Try again.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="greeting">
+        The Magical Cryptic Hunt Continues! 🪄✨<br>
+        <span class="emoji">⚡🏆✨</span>
+    </div>
+    <div class="puzzle-container">
+        <p>Observe the image below carefully and solve the numeric puzzle:</p>
+        <img src="https://i.pinimg.com/736x/c6/db/3a/c6db3ad92a2754dad18781c6b1d4e007.jpg" alt="sorting hat"> <!-- Replace with hosted link -->
+        <p><strong>Numeric Puzzle: The Forbidden Number Sequence</strong></p>
+        <p>
+            "Deep within the vaults of Gringotts, a powerful sequence protects the most valuable treasures. Can you crack the code?"<br>
+            Series:<br>
+            4, 9, 19, 39, 79, ?<br>
+          💡 What is the missing number? <br>            
+            clue: Add double efforts<br>
+            The image and the answer of the puzzle below when combined leads you to next step.
+        </p>
+    </div>
+    <input type="text" id="answer" placeholder="Enter your answer here...">
+    <br>
+    <button onclick="checkAnswer()">Submit</button>
+</body>
+</html>
