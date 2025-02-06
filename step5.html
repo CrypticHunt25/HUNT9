@@ -1,74 +1,129 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Final Step</title>
-  <style>
-    body {
-      background: url('https://i.pinimg.com/736x/68/a1/c6/68a1c6c3d976f456bd0407e01e5169d1.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-      font-family: 'Georgia', serif;
-      text-align: center;
-      padding: 20px;
-    }
-    .container {
-      margin-top: 100px;
-      background: rgba(0, 0, 0, 0.7);
-      border-radius: 15px;
-      padding: 30px;
-      display: inline-block;
-    }
-    .input-box {
-      margin-top: 20px;
-    }
-    input[type="text"] {
-      padding: 10px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      color: #fff;
-      background-color: #4caf50;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-  </style>
-  <script>
-    document.addEventListener("contextmenu", (event) => event.preventDefault());
-
-    function checkAnswer() {
-      const answer = document.getElementById("answer").value;
-      if (answer === "Vishwakarandak") {
-        alert("Congratulations! You have completed Hunt.");
-        window.location.href = "congratulations.html";
-      } else {
-        alert("Incorrect answer. Try again!");
-      }
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Clue</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url('https://i.pinimg.com/736x/55/8c/04/558c0456603210e34f1925683a2b7d27.jpg') no-repeat center center/cover;
+            color: white;
+        }
+        .card {
+            background: rgba(0, 0, 0, 0.85);
+            color: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            max-width: 600px;
+            backdrop-filter: blur(10px);
+        }
+        .card h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-family: 'Cursive', serif;
+            color: #ffc107;
+        }
+        .card p {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: #f1c40f;
+        }
+        .card input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #6c757d;
+            border-radius: 5px;
+            background: #f8f9fa;
+        }
+        .card button {
+            background: linear-gradient(45deg, #ffc107, #ff5722);
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .card button:hover {
+            background: linear-gradient(45deg, #ff5722, #ffc107);
+        }
+        .error {
+            color: #f54242;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Final Step</h1>
-    <p>"A war is waged, but swords stay sheathed,
-Departments clash, each seeking a wreath.
-Through mind, through skill, through fire they fight,
-For honour, for pride, for victory’s light."</p>
-    <div class="input-box">
-      <input type="text" id="answer" placeholder="Enter your answer here">
-      <button onclick="checkAnswer()">Submit</button>
+    <div class="card">
+        <h1>Final Clue</h1>
+        <p>"A war is waged not with swords alone,
+Departments rise to claim the throne.
+Through sports, arts, and brains, they compete,
+To win the prize, where all paths meet.
+It's the cup we cherish, the pride we defend,
+The name of the event-what's the legend?"</p>
+        <input type="text" id="answer" placeholder="Enter your answer">
+        <div id="feedback" class="error"></div>
+        <button onclick="checkAnswer()">Submit Answer</button>
     </div>
-  </div>
+
+    <script>
+        function checkAnswer() {
+            const answer = document.getElementById('answer').value.toLowerCase().trim();
+            const feedback = document.getElementById('feedback');
+
+            if (answer === 'vishwakarandak') {
+                window.location.href = "congratulations.html"; // Redirect to the congrats page
+            } else {
+                feedback.textContent = 'Incorrect answer! Please try again.';
+            }
+        }
+
+        // Disable Right Click
+        document.addEventListener('contextmenu', (event) => event.preventDefault());
+
+        // Disable F12 Key (Developer Tools)
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
+                event.preventDefault();
+                alert('Developer tools are disabled.');
+            }
+        });
+
+        // Disable Ctrl+Shift+J / Ctrl+U (View Source)
+        document.addEventListener('keydown', (event) => {
+            if (
+                (event.ctrlKey && event.key === 'u') || 
+                (event.ctrlKey && event.shiftKey && (event.key === 'j' || event.key === 'c'))
+            ) {
+                event.preventDefault();
+                alert('This action is disabled.');
+            }
+        });
+
+        // Continuous Debugger Blocker
+        (function blockDebugger() {
+            setInterval(() => {
+                const devtools = /./;
+                devtools.toString = () => {
+                    throw "DevTools blocked!";
+                };
+                console.log(devtools);
+            }, 1000);
+        })(); 
+    </script>
 </body>
 </html>
